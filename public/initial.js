@@ -1,0 +1,5 @@
+const initial = {
+    articles: {
+        // ... articles
+    },
+};
