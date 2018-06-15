@@ -1,10 +1,8 @@
 import React from "react";
-
 import FourOhFour from "../FourOhFour";
-
-import Actions from "./Actions";
+import Actions from "../../containers/Articles/Delete";
 import Tags from "./Tags";
-import Comments from "./Comments";
+import Comments from "../../containers/Articles/Comments";
 
 // if article isn't passed in, that means it's an invalid id, so show FourOhFour
 const Article = ({ article }) => !article ? <FourOhFour /> : (
@@ -23,7 +21,8 @@ const Article = ({ article }) => !article ? <FourOhFour /> : (
         <hr />
 
         { /* use the comments component */ }
-        <Comments comments={ article.comments } />
+        <Comments article={ article } comments={ article.comments } />
+
     </React.Fragment>
 );
 

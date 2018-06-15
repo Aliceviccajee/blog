@@ -8,13 +8,11 @@ const fields = [
     { name: "tags", label: "Tags", value: "" }
 ];
 
-// the add article component
-const Add = ({ onSubmit }) => (
+const Delete = ({ onSubmit }) => (
     <React.Fragment>
-        <h2>Add Article</h2>
-
-        <Form onSubmit={ onSubmit } className="panel-body" fields={ fields } button="Add Article" />
+        <h2>Delete Article</h2>
+		<Form onSubmit={ onSubmit } className="panel-body" fields={ fields } button="Delete Article" />
     </React.Fragment>
 );
 
-export default Add;
+export default Delete;

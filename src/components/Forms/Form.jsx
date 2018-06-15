@@ -12,6 +12,18 @@ class Form extends Component {
         this.state = {
             fields: props.fields.slice(),
         }
+
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        let data = this.state.fields.reduce((data, field) => {
+            data[field.name] = field.value;
+            return data;
+        }, {});
+        this.props.onSubmit(data);
+
     }
 
     handleChange(e, i) {
@@ -26,9 +38,8 @@ class Form extends Component {
 
     render() {
         const { className, button } = this.props;
-
         return (
-            <form className={ "form" + (className ? " " + className : "") } >
+            <form onSubmit= { this.onSubmit } className={ "form" + (className ? " " + className : "") } >
                 { this.state.fields.map(({ name, label, value }, i) => (
                     <Input
                         key={ i }
@@ -42,6 +53,7 @@ class Form extends Component {
             </form>
         );
     }
+
 }
 
 export default Form;
